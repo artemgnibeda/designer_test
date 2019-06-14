@@ -1,8 +1,9 @@
+// fade animations for first block
 $(window).load(function () {
   $('#fullpage').css('opacity','1');
 });
 
-
+// scroll alternative for mobile
 
 var width = window.innerWidth;
 if (width > 550) {
@@ -15,41 +16,19 @@ if (width > 550) {
 }
 else {
   jQuery(function($){
-$('a[href*="#"]').on('click.smoothscroll', function( e ){
-var hash    = this.hash, _hash   = hash.replace(/#/,''), theHref = $(this).attr('href').replace(/#.*/, '');
-if( theHref && location.href.replace(/#.*/,'') != theHref ) return;
-var $target = _hash === '' ? $('body') : $( hash + ', a[name="'+ _hash +'"]').first();
-if( ! $target.length ) return;
-e.preventDefault();
-$('html, body').stop().animate({ scrollTop: $target.offset().top - 0 }, 600, 'swing', function(){
-window.location.hash = hash;
-});
-});
-});
+  $('a[href*="#"]').on('click.smoothscroll', function( e ){
+    var hash    = this.hash, _hash   = hash.replace(/#/,''), theHref = $(this).attr('href').replace(/#.*/, '');
+    if( theHref && location.href.replace(/#.*/,'') != theHref ) return;
+    var $target = _hash === '' ? $('body') : $( hash + ', a[name="'+ _hash +'"]').first();
+    if( ! $target.length ) return;
+      e.preventDefault();
+      $('html, body').stop().animate({ scrollTop: $target.offset().top - 0 }, 600, 'swing', function(){
+        window.location.hash = hash;
+      });
+    });
+  });
 }
 
-
-
-// var target = $('.skills-item');
-// var targetPos = target.offset().top;
-// var winHeight = $(window).height();
-// var scrollToElem = targetPos - winHeight;
-// $(window).scroll(function(){
-//   var winScrollTop = $(this).scrollTop();
-//   console.log(winScrollTop);
-//   if(winScrollTop > scrollToElem){
-//
-//     $(".skills-item").addClass("fadeInUp");
-//   }
-//   else {
-//     $(".skills-item").removeClass("fadeInUp");
-//   }
-// });
-
-
-if ($('.section').hasClass("active")) {
-  $(".skills-item").addClass("animated fadeInUp");
-}
 
 
 
